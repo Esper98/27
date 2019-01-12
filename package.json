@@ -1,5 +1,5 @@
 {
-  "name": "AwesomeProject",
+  "name": "27",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -17,6 +17,7 @@
     "react-test-renderer": "16.6.3"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "run": "react-native run-android"
   }
 }
