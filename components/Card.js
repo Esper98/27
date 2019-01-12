@@ -1,11 +1,22 @@
-import React from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+} from 'react-native';
 
-
-const card = props => {
+export default class Card extends Component {
+  render() {
     return (
-        <Text>Card works!</Text>
+      <View>
+        <Text style={styles.text}>oi</Text>
+      </View>
     );
-};
+  }
+}
 
-export default card;
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 30
+  }
+});
