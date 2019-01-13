@@ -9,9 +9,9 @@ export default class Hand extends Component {
   }
 
   renderCard = (card) => {
-    return (
+      return (
         <Card style={styles.cardContainer}
-        value = '10'/>
+        value = {card}/>
     );
   }
 
@@ -20,7 +20,7 @@ export default class Hand extends Component {
         <FlatList style={styles.hand}
             horizontal
             data={this.props.cards}
-            renderItem={({ card }) => this.renderCard(card)}
+            renderItem={({ item }) => this.renderCard(item)}
             keyExtractor={this._keyExtractor}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}}

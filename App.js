@@ -31,10 +31,7 @@ export default class App extends Component {
         <Text style={styles.instructions}>{instructions}</Text>
         <Text>Halloooooi!</Text>
         <View style={styles.cardContainer}>
-          <Card value='1'/>
-          <Card value='X'/>
-          <Card value='5'/>
-          
+
         </View>
         <Hand cards={cards}/>
       </View>
