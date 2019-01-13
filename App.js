@@ -23,11 +23,15 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Card/>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
         <Text>Halloooooi!</Text>
+        <View style={styles.cardContainer}>
+          <Card/>
+          <Card/>
+          <Card/>
+        </View>
       </View>
     );
   }
@@ -39,6 +43,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  cardContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100%',
+    alignItems: 'center',
+
   },
   welcome: {
     fontSize: 20,
