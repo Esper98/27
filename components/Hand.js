@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Card from './Card';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 
-export default class Deck extends Component {
+export default class Hand extends Component {
 
   constructor(props) {
     super(props);
@@ -17,7 +17,7 @@ export default class Deck extends Component {
 
   render() {
     return (
-        <FlatList style={styles.deck}
+        <FlatList style={styles.hand}
             horizontal
             data={this.props.cards}
             renderItem={({ card }) => this.renderCard(card)}
@@ -30,7 +30,7 @@ export default class Deck extends Component {
 }
 
 const styles = StyleSheet.create({
-  deck: {
+  hand: {
     position: 'absolute',
     bottom: 0,
     height: 120,
