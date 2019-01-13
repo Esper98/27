@@ -11,6 +11,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 
 //components
 import Card from './components/Card'
+import Deck from './components/Deck'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -32,6 +33,7 @@ export default class App extends Component {
           <Card value='X'/>
           <Card value='5'/>
         </View>
+        <Deck/>
       </View>
     );
   }
@@ -49,7 +51,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%',
     alignItems: 'center',
-
   },
   welcome: {
     fontSize: 20,
