@@ -9,6 +9,9 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
+//components
+import Card from './components/Card'
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -24,6 +27,11 @@ export default class App extends Component {
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
         <Text>Halloooooi!</Text>
+        <View style={styles.cardContainer}>
+          <Card value='1'/>
+          <Card value='X'/>
+          <Card value='5'/>
+        </View>
       </View>
     );
   }
@@ -35,6 +43,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  cardContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100%',
+    alignItems: 'center',
+
   },
   welcome: {
     fontSize: 20,
