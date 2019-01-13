@@ -20,6 +20,8 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+var cards = ["3", "X", "1", "3", "X", "3"]; 
+
 export default class App extends Component {
   render() {
     return (
@@ -32,8 +34,9 @@ export default class App extends Component {
           <Card value='1'/>
           <Card value='X'/>
           <Card value='5'/>
+          
         </View>
-        <Deck/>
+        <Deck cards={cards}/>
       </View>
     );
   }

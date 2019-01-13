@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Card from './Card';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 
 export default class Deck extends Component {
 
@@ -8,13 +8,23 @@ export default class Deck extends Component {
     super(props);
   }
 
+  renderItem = (item) => {
+    return (
+        <Card style={styles.cardContainer}
+        value = '10'/>
+    );
+  }
+
   render() {
     return (
-      <View style={styles.deck}>
-        <Card value = '1'/>
-        <Card value = '+'/>
-        <Card value = 'x'/>
-      </View>
+        <FlatList style={styles.deck}
+            horizontal
+            data={this.props.cards}
+            renderItem={({ item }) => this.renderItem(item)}
+            keyExtractor={this._keyExtractor}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}}
+      />
     );
   }
 }
@@ -26,9 +36,5 @@ const styles = StyleSheet.create({
     height: 120,
     width: '100%',
     backgroundColor: 'rgb(200,200,200)',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    width: '100%',
-    alignItems: 'center',
   }
 });
