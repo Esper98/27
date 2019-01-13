@@ -6,21 +6,48 @@ export default class Hand extends Component {
 
     constructor(props) {
         super(props);
+        this.state = { 
+            hand:[] 
+        };
     }
 
-    renderCard = (card) => {
+    componentDidMount(){
+        this.returnStartingHand()
+    }
+
+    renderCard (card){        
         return (
             <Card style={styles.cardContainer}
-            value = '10'/>
+            value={card.value}/>
         );
     }
 
+    returnRandomCardFromDeck(){
+        var card = this.props.deck[Math.floor(Math.random() * this.props.deck.length)];
+        return card
+    }
+
+    removeCard(card, cardList){
+        var index = cardList.indexOf(card);
+        cardList.splice(index, 1);
+    }
+
+    returnStartingHand(){
+        const startingHand = []
+        for (let index = 0; index < 6; index++) {
+            startingHand[index] = this.returnRandomCardFromDeck()
+            this.removeCard(startingHand[index], this.props.deck)
+        }
+        this.setState({
+            hand: startingHand
+        })  
+    }
     render() {
         return (
             <FlatList style={styles.hand}
                 horizontal
-                data={this.props.cards}
-                renderItem={({ card }) => this.renderCard(card)}
+                data={this.state.hand}
+                renderItem={({ item }) => this.renderCard(item)}
                 keyExtractor={this._keyExtractor}
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}}
