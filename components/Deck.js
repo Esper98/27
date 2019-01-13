@@ -8,7 +8,7 @@ export default class Deck extends Component {
     super(props);
   }
 
-  renderItem = (item) => {
+  renderCard = (card) => {
     return (
         <Card style={styles.cardContainer}
         value = '10'/>
@@ -20,7 +20,7 @@ export default class Deck extends Component {
         <FlatList style={styles.deck}
             horizontal
             data={this.props.cards}
-            renderItem={({ item }) => this.renderItem(item)}
+            renderItem={({ card }) => this.renderCard(card)}
             keyExtractor={this._keyExtractor}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}}
