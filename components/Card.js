@@ -6,10 +6,15 @@ import {
 } from 'react-native';
 
 export default class Card extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <View style={styles.card}>
-        <Text style={styles.text}>X</Text>
+        <Text style={styles.text}>{this.props.value}</Text>
       </View>
     );
   }

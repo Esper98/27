@@ -28,9 +28,9 @@ export default class App extends Component {
         <Text style={styles.instructions}>{instructions}</Text>
         <Text>Halloooooi!</Text>
         <View style={styles.cardContainer}>
-          <Card/>
-          <Card/>
-          <Card/>
+          <Card value='1'/>
+          <Card value='X'/>
+          <Card value='5'/>
         </View>
       </View>
     );
