@@ -11,7 +11,8 @@ export default class Hand extends Component {
   renderCard = (card) => {
       return (
         <Card style={styles.cardContainer}
-        value = {card}/>
+        value = {card}
+        isClosed = {false}/>
     );
   }
 

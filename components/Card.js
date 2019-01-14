@@ -11,10 +11,20 @@ export default class Card extends Component {
     super(props);
   }
 
+
+
   render() {
+    var test;
+    console.log(this.props);
+    if (!this.props.isClosed) {
+      test = <Text style={styles.text}>{ this.props.value }</Text>;
+    } else {
+      test = null;
+    }
+
     return (
-      <View style={styles.card}>
-        <Text style={styles.text}>{this.props.value}</Text>
+      <View style= {[styles.card, this.props.isClosed ? styles.closed: styles.open]}>
+        {test}
       </View>
     );
   }
@@ -34,7 +44,6 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     height: 80,
     width: 50,
-    backgroundColor: 'rgb(0,200,200)',
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -43,5 +52,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
     elevation: 3,
+  },
+  open: {
+    backgroundColor: 'rgb(0,200,200)',
+  },
+  closed: {
+    backgroundColor: 'rgb(0,50,50)',
   }
 });

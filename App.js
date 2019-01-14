@@ -12,6 +12,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 //components
 import Card from './components/Card'
 import Hand from './components/Hand'
+import Deck from './components/Deck'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -31,7 +32,7 @@ export default class App extends Component {
         <Text style={styles.instructions}>{instructions}</Text>
         <Text>Halloooooi!</Text>
         <View style={styles.cardContainer}>
-
+          <Deck/>
         </View>
         <Hand cards={cards}/>
       </View>
