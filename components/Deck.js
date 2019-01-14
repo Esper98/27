@@ -19,8 +19,9 @@ export default class Deck extends Component {
 
 const styles = StyleSheet.create({
   deck: {
-    height: 300,
-    width: 300,
-    backgroundColor: 'rgb(0,0,20)',
+    height: 200,
+    width: 200,
+    margin: 30,
+    backgroundColor: 'rgb(100,100,100)',
   }
 });
