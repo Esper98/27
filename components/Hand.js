@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import Card from './Card';
 import { StyleSheet, FlatList } from 'react-native';
-
+import {returnRandomCardFromDeck, removeCard, returnStartingHand} from '../logic/card'
 export default class Hand extends Component {
 
     constructor(props) {
         super(props);
         this.state = { 
-            hand:[] 
+            hand: returnStartingHand(this.props.deck)
         };
-    }
-
-    componentDidMount(){
-        this.returnStartingHand()
     }
 
     renderCard (card){        
@@ -22,26 +18,7 @@ export default class Hand extends Component {
         );
     }
 
-    returnRandomCardFromDeck(){
-        var card = this.props.deck[Math.floor(Math.random() * this.props.deck.length)];
-        return card
-    }
-
-    removeCard(card, cardList){
-        var index = cardList.indexOf(card);
-        cardList.splice(index, 1);
-    }
-
-    returnStartingHand(){
-        const startingHand = []
-        for (let index = 0; index < 6; index++) {
-            startingHand[index] = this.returnRandomCardFromDeck()
-            this.removeCard(startingHand[index], this.props.deck)
-        }
-        this.setState({
-            hand: startingHand
-        })  
-    }
+    
     render() {
         return (
             <FlatList style={styles.hand}
