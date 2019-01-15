@@ -28,7 +28,7 @@ export default class App extends Component {
     	return (
       		<View style={styles.container}>
        			<View style={styles.cardContainer}>
-          			<Deck/>
+					<Deck/>
         		</View>
         		<Hand cards={cards}/>
       		</View>

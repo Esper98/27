@@ -8,20 +8,13 @@ import {
 export default class Card extends Component {
 
 	constructor(props) {
-    	super(props);
-  	}
+		super(props);
+	}
 
   	render() {
-    	var test;
-    	if (!this.props.isClosed) {
-      		test = <Text style={styles.text}>{ this.props.value }</Text>;
-    	} else {
-      		test = null;
-    	}
-
     	return (
       		<View style= {[styles.card, this.props.isClosed ? styles.closed: styles.open]}>
-        		{test}
+				<Text style={styles.text}>{ !this.props.isClosed? this.props.value : null }</Text>
       		</View>
     	);
   	}
