@@ -21,7 +21,7 @@ const instructions = Platform.select({
     	'Shake or press menu button for dev menu',
 });
 
-var deck = [{value: 1}, {value: 2}, {value: 3}, {value: 4}, {value: 5}, {value: 6}, {value: 7}, {value: 8}, {value: 9}, {value: 10}]; 
+var deck = [{value: 1}, {value: 2}, {value: 3}, {value: 4}, {value: 5}, {value: 6}, {value: 7}, {value: 8}, {value: 9}, {value: 10}, {value: 's'}]; 
 
 export default class App extends Component {
   	render() {
