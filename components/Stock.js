@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card';
 import { StyleSheet, View, Text } from 'react-native';
 
-export default class Deck extends Component {
+export default class Stock extends Component {
 
 	constructor(props) {
     	super(props);
@@ -11,11 +11,10 @@ export default class Deck extends Component {
   	render() {
     	return (
         	
-			<View style={styles.deck}>
-				<Card value='3' isClosed={true}/>
-				<Text style={styles.text}>Cards left: 27</Text>
-			</View>            
-        	
+            <View style={styles.stock}>
+                <Card value='2' isClosed={false}/>
+            </View>
+            
     	);
   	}
 }
