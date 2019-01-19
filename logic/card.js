@@ -1,12 +1,10 @@
 
 export const card = {
     returnRandomCardFromDeck: function(deck){
-        var card = deck[Math.floor(Math.random() * deck.length)];
-        return card
+        return deck[0]
     },
     removeCard: function(card, cardList){
-        var index = cardList.indexOf(card);
-        cardList.splice(index, 1);
+        cardList.splice(0, 1);
     },
     returnStartingHand: function(deck){
         const startingHand = []

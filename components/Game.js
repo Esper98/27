@@ -1,26 +1,33 @@
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { game } from "../logic/game";
 //components
 import Hand from './Hand'
 import Deck from './Deck'
 import Stock from './Stock'
 
 
-var cards = ["3", "X", "1", "3", "X", "3"]; 
 
 export default class Game extends Component {
+	constructor(props) {
+		console.disableYellowBox = true
+		super(props);
+		this.state = {
+			deck: game.createDeck(),	
+		}
+		
+  	}
   	render() {
     	return (
       		<View style={styles.container}>
        			<View style={styles.cardContainer}>
                    <View style={styles.field}>
-                        <Deck/>
+                        <Deck deck={this.state.deck}/>
                         <Stock/>
                     </View>
         		</View>
-        		<Hand cards={cards}/>
+        		<Hand deck={this.state.deck}/>
       		</View>
     	);
   	}

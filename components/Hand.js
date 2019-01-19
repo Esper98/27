@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Card from './Card';
 import { StyleSheet, FlatList } from 'react-native';
-import {returnRandomCardFromDeck, removeCard, returnStartingHand} from '../logic/card'
+import { hand } from '../logic/hand'
 export default class Hand extends Component {
 
     constructor(props) {
         super(props);
         this.state = { 
-            hand: returnStartingHand(this.props.deck)
+            hand: hand.drawCards(this.props.deck, 5)
         };
     }
 
