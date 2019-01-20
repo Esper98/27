@@ -7,15 +7,17 @@
  */
 
 import React, {Component} from 'react';
-import {View} from 'react-native';
-
+import { Provider } from 'react-redux';
+import store from './store';
 //components
 import Game from './components/Game'
 
 export default class App extends Component {
-  	render() {
-    	return (
-			<Game/>
-    	);
-  	}
+	render() {
+		return (
+			<Provider store={store}>
+				<Game/>
+			</Provider>
+		);
+	}
 }
