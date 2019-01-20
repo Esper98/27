@@ -16,8 +16,8 @@ export default class Game extends Component {
 		this.state = {
 			deck: game.createDeck(),	
 		}
-		
-  	}
+	}
+	  
   	render() {
     	return (
       		<View style={styles.container}>
@@ -27,10 +27,23 @@ export default class Game extends Component {
                         <Stock/>
                     </View>
         		</View>
-        		<Hand deck={this.state.deck}/>
+        		<Hand drawCards={(amount)=> this.drawCards(amount)}/>
       		</View>
     	);
-  	}
+	}
+	
+	drawCards(amount){
+		const drawnCards = []
+		var tempDeck = this.state.deck
+		for (let index = 0; index < amount; index++) {
+			drawnCards[index] = tempDeck[0]
+			tempDeck.splice(0, 1);
+		}
+		this.setState({
+			deck: tempDeck
+		})
+		return drawnCards
+	}
 }
 
 const styles = StyleSheet.create({

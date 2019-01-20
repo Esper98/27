@@ -7,7 +7,7 @@ export default class Hand extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            hand: hand.drawCards(this.props.deck, 5)
+            hand: this.props.drawCards(5)
         };
     }
 
