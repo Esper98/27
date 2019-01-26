@@ -1,24 +1,35 @@
 
 import { CREATE_DECK } from './types';
-import { DRAW_CARDS } from './types';
 
 var deck;
 
 export function createDeck() {
-    deck = ["3", "X", "1", "3", "X", "3"]; 
-
+    deck = ["3", "X", "1", "3", "X", "3", "1"]; 
+    shuffleCards(deck);
     return{
       type: CREATE_DECK,
       payload: deck
     }
 }
 
-export function drawCards() {
-  cards = [];
-  cards.push(deck.pop());
+function shuffleCards(cards){
+  var j, x, i;
+  for (i = cards.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = cards[i];
+      cards[i] = cards[j];
+      cards[j] = x;
+    }
+}
 
-  return{
-    type: DRAW_CARDS,
-    payload: cards
+export function drawCards(amount) {
+  cards = [];
+  for (let i = 0; i < amount; i++) {
+    if (deck.length === 0 ){
+      //todo stop looping reshuffle deck
+    }
+    cards.push(deck.pop());
   }
+
+  return cards;
 }

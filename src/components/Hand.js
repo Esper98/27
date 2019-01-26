@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import Card from './Card';
 import { StyleSheet, FlatList } from 'react-native';
-import { drawCards } from '../actions';
+
+//redux
+import { createHand } from '../actions/hand';
+import { drawCards } from '../actions/deck';
+import { connect } from 'react-redux';
 
 class Hand extends Component {
 
   	constructor(props) {
 		super(props);
-		this.props.dispatch(drawCards());
-  	}
+		this.props.dispatch(createHand(drawCards(3)));
+	  }
 
   	renderCard = (card) => {
       	return (
@@ -22,7 +26,7 @@ class Hand extends Component {
     	return (
         	<FlatList style={styles.hand}
             	horizontal
-            	data={this.props.cards}
+            	data={this.props.hand}
             	renderItem={({ item }) => this.renderCard(item)}
             	keyExtractor={this._keyExtractor}
             	showsHorizontalScrollIndicator={false}
@@ -32,10 +36,10 @@ class Hand extends Component {
   	}
 }
 const mapStateToProps = state => ({
-    cards: state.deck.cards,
+	hand: state.hand.hand,
 })
 
-export default connect(mapStateToProps, null)(Deck);
+export default connect(mapStateToProps, null)(Hand);
 
 const styles = StyleSheet.create({
   	hand: {

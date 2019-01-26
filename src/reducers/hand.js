@@ -1,17 +1,17 @@
-import { DRAW_CARDS } from '../actions/types'
+import { CREATE_HAND } from '../actions/types'
 
 const initialState = {
-    deck: [{}, {}],
+    hand: null,
 }
 
-export default function deckReducer (state = initialState, action) {
+export default function handReducer (state = initialState, action) {
   
   switch (action.type) {
 
-    case CREATE_DECK:
+    case CREATE_HAND:
         return {
             ...state,
-            deck: action.payload,
+            hand: action.payload,
         }
     default:
       return state
