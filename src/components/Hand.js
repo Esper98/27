@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Card from './Card';
 import { StyleSheet, FlatList } from 'react-native';
+import { drawCards } from '../actions';
 
-export default class Hand extends Component {
+class Hand extends Component {
 
   	constructor(props) {
-    	super(props);
+		super(props);
+		this.props.dispatch(drawCards());
   	}
 
   	renderCard = (card) => {
@@ -29,6 +31,11 @@ export default class Hand extends Component {
     	);
   	}
 }
+const mapStateToProps = state => ({
+    cards: state.deck.cards,
+})
+
+export default connect(mapStateToProps, null)(Deck);
 
 const styles = StyleSheet.create({
   	hand: {
