@@ -20,7 +20,7 @@ export default class Game extends Component {
                         <Stock/>
                     </View>
         		</View>
-        		<Hand cards={cards}/>
+        		<Hand/>
       		</View>
     	);
   	}
