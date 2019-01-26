@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import Card from './Card';
 import { StyleSheet, View, Text } from 'react-native';
 
-export default class Deck extends Component {
+// Redux
+import { createDeck } from "../actions/deck";
+import { connect } from 'react-redux';
+
+class Deck extends Component {
 
 	constructor(props) {
-    	super(props);
+		super(props);
+		this.props.dispatch(createDeck())
   	}
 
   	render() {
@@ -13,12 +18,17 @@ export default class Deck extends Component {
         	
 			<View style={styles.deck}>
 				<Card value='3' isClosed={true}/>
-				<Text style={styles.text}>Cards left: 27</Text>
+				<Text style={styles.text}>Cards left: {this.props.deck.length}</Text>
 			</View>            
         	
     	);
   	}
 }
+const mapStateToProps = state => ({
+    deck: state.deck.deck,
+})
+
+export default connect(mapStateToProps, null)(Deck);
 
 const styles = StyleSheet.create({
   	field: {

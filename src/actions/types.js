@@ -1,0 +1,1 @@
+export const CREATE_DECK = 'create_deck';
