@@ -11,7 +11,10 @@ export function addToPlayingField(card) {
 }
 export function removeFromPlayingField(card) {
     console.log(playingField)
-    playingField.pop(card)
+    var index = playingField.indexOf(card);
+    if (index > -1) {
+        playingField.splice(index, 1);
+    }
     console.log(playingField)
     return{
         type: REMOVE_FROM_PLAYINGFIELD,
