@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Card from './Card';
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, TouchableHighlight} from 'react-native';
 
 //redux
 import { createHand } from '../actions/hand';
 import { drawCards } from '../actions/deck';
+import { addToPlayingField } from '../actions/playingField';
 import { connect } from 'react-redux';
 
 class Hand extends Component {
@@ -16,9 +17,12 @@ class Hand extends Component {
 
   	renderCard = (card) => {
       	return (
-        	<Card style={styles.cardContainer}
-        	value = {card}
-        	isClosed = {false}/>
+			<TouchableHighlight onPress={() => this.props.dispatch(addToPlayingField(card))}>
+				<Card style={styles.cardContainer}
+				value = {card}
+				isClosed = {false}/>
+			</TouchableHighlight>
+        	
     	);
   	}
 

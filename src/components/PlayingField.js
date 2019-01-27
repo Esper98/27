@@ -24,7 +24,7 @@ class PlayingField extends Component {
     	return (
         	<FlatList style={styles.playingField}
             	horizontal
-            	data={['3', '4', '5']}
+            	data={this.props.playingField}
             	renderItem={({ item }) => this.renderCard(item)}
             	keyExtractor={this._keyExtractor}
             	showsHorizontalScrollIndicator={false}
@@ -34,7 +34,7 @@ class PlayingField extends Component {
   	}
 }
 const mapStateToProps = state => ({
-	hand: state.hand.hand,
+	playingField: state.playingField.playingField,
 })
 
 export default connect(mapStateToProps, null)(PlayingField);
