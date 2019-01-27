@@ -3,15 +3,13 @@ import Card from './Card';
 import { StyleSheet, FlatList } from 'react-native';
 
 //redux
-import { createHand } from '../actions/hand';
-import { drawCards } from '../actions/deck';
 import { connect } from 'react-redux';
 
-class Hand extends Component {
+class PlayingField extends Component {
 
   	constructor(props) {
 		super(props);
-		this.props.dispatch(createHand(drawCards(5)));
+		
 	  }
 
   	renderCard = (card) => {
@@ -24,9 +22,9 @@ class Hand extends Component {
 
   	render() {
     	return (
-        	<FlatList style={styles.hand}
+        	<FlatList style={styles.playingField}
             	horizontal
-            	data={this.props.hand}
+            	data={['3', '4', '5']}
             	renderItem={({ item }) => this.renderCard(item)}
             	keyExtractor={this._keyExtractor}
             	showsHorizontalScrollIndicator={false}
@@ -39,10 +37,10 @@ const mapStateToProps = state => ({
 	hand: state.hand.hand,
 })
 
-export default connect(mapStateToProps, null)(Hand);
+export default connect(mapStateToProps, null)(PlayingField);
 
 const styles = StyleSheet.create({
-  	hand: {
+  	playingField: {
     	padding: 20,
     	width: '100%',
     	backgroundColor: 'rgb(200,200,200)',
