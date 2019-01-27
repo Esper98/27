@@ -2,22 +2,32 @@ import React, { Component } from 'react';
 import Card from './Card';
 import { StyleSheet, View, Text } from 'react-native';
 
-export default class Stock extends Component {
+//redux
+import { connect } from 'react-redux';
+import { addToPile } from '../actions/pile';
+
+class Pile extends Component {
 
 	constructor(props) {
-    	super(props);
+		super(props);
+		this.props.dispatch(addToPile(['y','x','o']));
   	}
 
   	render() {
     	return (
-        	
             <View style={styles.stock}>
-                <Card value='2' isClosed={false}/>
-            </View>
-            
+                <Card value={this.props.topCard} isClosed={false}/>
+            </View>           
     	);
   	}
 }
+
+const mapStateToProps = state => ({
+	pile: state.pile.pile,
+	topCard: state.pile.topCard
+})
+
+export default connect(mapStateToProps, null)(Pile);
 
 const styles = StyleSheet.create({
   	field: {

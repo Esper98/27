@@ -5,10 +5,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 //components
 import Hand from './Hand'
 import Deck from './Deck'
-import Stock from './Stock'
-
-
-var cards = ["3", "X", "1", "3", "X", "3"]; 
+import Pile from './Pile'
 
 export default class Game extends Component {
   	render() {
@@ -17,7 +14,7 @@ export default class Game extends Component {
        			<View style={styles.cardContainer}>
                    <View style={styles.field}>
                         <Deck/>
-                        <Stock/>
+                        <Pile/>
                     </View>
         		</View>
         		<Hand/>

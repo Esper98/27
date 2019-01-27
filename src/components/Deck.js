@@ -3,7 +3,7 @@ import Card from './Card';
 import { StyleSheet, View, Text } from 'react-native';
 
 // Redux
-import { createDeck } from "../actions/deck";
+import { createDeck, drawCards } from "../actions/deck";
 import { connect } from 'react-redux';
 
 class Deck extends Component {
@@ -11,6 +11,7 @@ class Deck extends Component {
 	constructor(props) {
 		super(props);
 		this.props.dispatch(createDeck())
+	//	this.props.dispatch(drawCards(2))
   	}
 
   	render() {
