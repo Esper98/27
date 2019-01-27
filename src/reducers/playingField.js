@@ -1,4 +1,4 @@
-import { ADD_TO_PLAYINGFIELD } from '../actions/types'
+import { ADD_TO_PLAYINGFIELD, REMOVE_FROM_PLAYINGFIELD } from '../actions/types'
 
 const initialState = {
     playingField: [],
@@ -13,7 +13,12 @@ export default function playingFieldReducer (state = initialState, action) {
             ...state,
             playingField: action.payload,
         }
+    case REMOVE_FROM_PLAYINGFIELD:
+        return {
+            ...state,
+            playingField: action.payload,
+        }
     default:
-      return state
+        return state
   }
 }

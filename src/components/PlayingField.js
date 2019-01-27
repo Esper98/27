@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Card from './Card';
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, TouchableHighlight } from 'react-native';
 
 //redux
 import { connect } from 'react-redux';
+import { removeFromPlayingField } from '../actions/playingField';
 
 class PlayingField extends Component {
 
@@ -14,9 +15,11 @@ class PlayingField extends Component {
 
   	renderCard = (card) => {
       	return (
-        	<Card style={styles.cardContainer}
-        	value = {card}
-        	isClosed = {false}/>
+        	<TouchableHighlight onPress={() => this.props.dispatch(removeFromPlayingField(card))}>
+				<Card style={styles.cardContainer}
+				value = {card}
+				isClosed = {false}/>
+			</TouchableHighlight>
     	);
   	}
 
